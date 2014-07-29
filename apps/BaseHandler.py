@@ -67,6 +67,8 @@ class BaseHandler:
         
     @classmethod
     def deliverlog(self, name, to, book, size, status='ok', tz=TIMEZONE):
+        if type(to) == list:
+            to = ';'.join(to)
         try:
             dl = DeliverLog(username=name, to=to, size=size,
                time=local_time(tz=tz), datetime=datetime.datetime.utcnow(),
@@ -95,7 +97,9 @@ class BaseHandler:
             
         for i in range(SENDMAIL_RETRY_CNT+1):
             try:
-                mail.send_mail(SRC_EMAIL, to, "KindleEar %s" % lctime, "Deliver from KindleEar",
+                if ";" in to:
+                    to = to.split(";")
+                mail.send_mail(SRC_EMAIL, to, "News Feeds %s" % lctime, "Deliver from News Feeds",
                     attachments=[(filename, attachment),])
             except OverQuotaError as e:
                 default_log.warn('overquota when sendmail to %s:%s' % (to, str(e)))
@@ -137,10 +141,14 @@ class BaseHandler:
         for i in range(SENDMAIL_RETRY_CNT+1):
             try:
                 if attachments:
-                    mail.send_mail(SRC_EMAIL, to, title, "Deliver from KindlerEar, refers to html part.",
+                    if ";" in to:
+                        to = to.split(";")
+                    mail.send_mail(SRC_EMAIL, to, title, "Deliver from News Feeds, refers to html part.",
                         html=html, attachments=attachments)
                 else:
-                    mail.send_mail(SRC_EMAIL, to, title, "Deliver from KindlerEar, refers to html part.",
+                    if ";" in to:
+                        to = to.split(";")
+                    mail.send_mail(SRC_EMAIL, to, title, "Deliver from News Feeds, refers to html part.",
                         html=html)
             except OverQuotaError as e:
                 default_log.warn('overquota when sendmail to %s:%s' % (to, str(e)))
