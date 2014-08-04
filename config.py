@@ -5,7 +5,7 @@ KindleEar配置文件，请务必修改开始两个配置（如果使用uploader
 """
 
 SRC_EMAIL = "binbin5474@gmail.com"  #Your gmail account for sending mail to Kindle
-DOMAIN = "https://media-of-party.appspot.com" #Your domain of app
+DOMAIN = "https://media-of-party5.appspot.com" #Your domain of app
 
 TIMEZONE = 8  #Default timezone, you can modify it in webpage after deployed
 
@@ -17,7 +17,7 @@ MY_FEEDS_TITLE = u'新闻推送'
 MY_FEEDS_DESC = u'RSS delivering 新闻推送'
 
 #default timeout for network connection
-CONNECTION_TIMEOUT = 45
+CONNECTION_TIMEOUT = 150
 
 # True to translate filename in chinese to pinyin
 PINYIN_FILENAME = False
