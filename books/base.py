@@ -124,6 +124,9 @@ class BaseFeedBook:
     #注意，如果分节标题是中文的话，增加u前缀，比如
     #(u'8小时最热', 'http://www.qiushibaike.com'),
     feeds = []
+    
+    #不使用链接传进来的title
+    force_ftitle = False
 
     #几个钩子函数，基类在适当的时候会调用，
     #子类可以使用钩子函数进一步定制
@@ -334,11 +337,12 @@ class BaseFeedBook:
                 article = self.FragToXhtml(desc, ftitle)
             
             #如果是图片，title则是mime
-            for title, imgurl, imgfn, content, brief, thumbnail in readability(article,url,opts,user):
+            for title, imgurl, imgfn, content, brief, thumbnail in readability(article,url,opts,user,ftitle):
                 if title.startswith(r'image/'): #图片
                     yield (title, imgurl, imgfn, content, brief, thumbnail)
                 else:
                     if not title: title = ftitle
+                    if self.force_ftitle:title = ftitle
                     content =  self.postprocess(content)
                     yield (section, url, title, content, brief, thumbnail)
 
@@ -469,7 +473,7 @@ class BaseFeedBook:
         else:
             return decoder.decode(content,opener.realurl,result.headers)
 
-    def readability(self, article, url, opts=None, user=None):
+    def readability(self, article, url, opts=None, user=None,ftitle=None):
         """ 使用readability-lxml处理全文信息
         因为图片文件占内存，为了节省内存，这个函数也做为生成器
         """
@@ -489,7 +493,10 @@ class BaseFeedBook:
             return
         
         title = self.processtitle(title)
-        
+
+        if self.force_ftitle and ftitle:
+            title=ftitle
+
         soup = BeautifulSoup(summary, "lxml")
         
         #如果readability解析失败，则启用备用算法（不够好，但有全天候适应能力）
@@ -647,7 +654,7 @@ class BaseFeedBook:
 
         yield (title, None, None, content, brief, thumbnail)
 
-    def readability_by_soup(self, article, url, opts=None, user=None):
+    def readability_by_soup(self, article, url, opts=None, user=None,ftitle=None):
         """ 使用BeautifulSoup手动解析网页，提取正文内容
         因为图片文件占内存，为了节省内存，这个函数也做为生成器
         """
@@ -664,6 +671,10 @@ class BaseFeedBook:
             return
 
         title = self.processtitle(title)
+
+        if self.force_ftitle and ftitle:
+            title=ftitle
+
         soup.html.head.title.string = title
 
         if self.keep_only_tags:

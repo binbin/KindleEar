@@ -25,6 +25,7 @@ class QstheorySubject(BaseFeedBook):
     feeds = [ (u'求是_热点聚焦','http://www.qstheory.cn/was5/web/search?channelid=288671&prepage=10&searchword=extend5%3D%27%251184339%25%27&list=1184339'),
               (u'求是_求是导读','http://www.qstheory.cn/was5/web/search?channelid=288671&searchword=extend5%3D%27%251184341%25%27&prepage=10&list=1184341'),
               (u'求是_热点话题','http://www.qstheory.cn/was5/web/search?channelid=288671&prepage=10&searchword=extend5%3D%27%251184553%25%27&list=1184553'),
+              (u'求是_热点导读','http://www.qstheory.cn/was5/web/search?channelid=268219&prepage=30&searchword=extend5%3D%27%251181640%25%27&list=1181640'),
             ]
     def ParseFeedUrls(self):
         """ return list like [(section,title,url,desc),..] """
@@ -51,7 +52,11 @@ class QstheorySubject(BaseFeedBook):
             file_name_search=re.compile(r'\d{4}-\d{2}/\d{2}').search
             tnow = datetime.datetime.utcnow()+datetime.timedelta(hours=8)
 
-            for h3 in soup.find_all('h3'):
+            list_article = soup.find_all('h3')
+            if not list_article:
+                list_article = soup.find_all('h2')
+
+            for h3 in list_article:
                 a=h3.find('a')
                 href = a['href']
                 if not a:

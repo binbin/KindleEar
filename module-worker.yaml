@@ -1,4 +1,4 @@
-application: media-of-party5
+application: party-newspaper
 module: worker
 version: 1
 runtime: python27
