@@ -22,23 +22,23 @@ class Banyuetan(BaseFeedBook):
     network_timeout       = 60
     oldest_article        = 1
     
-    feeds = [ (u'时政_为政者说_访谈','http://www.banyuetan.org/chcontent/sz/wzzs/szft/index.html'),
-              (u'时政_为政者说_笔谈','http://www.banyuetan.org/chcontent/sz/wzzs/szbt/index.html'),
-              (u'时政_为政者说_诤言','http://www.banyuetan.org/chcontent/sz/wzzs/szgd/index.html'),
-              (u'时政_时政聚焦','http://www.banyuetan.org/chcontent/sz/szgc/index.html'),
-              (u'时政_环球看点','http://www.banyuetan.org/chcontent/sz/hqkd/index.html'),
-              (u'时政_经济观察','http://www.banyuetan.org/chcontent/sz/jjzs/index.html'),
-              (u'资讯_要闻300秒','http://www.banyuetan.org/chcontent/zx/yw/index.html'),
-              (u'资讯_媒体集萃','http://www.banyuetan.org/chcontent/zx/mtzd/index.html'),
-              (u'资讯_民生话题','http://www.banyuetan.org/chcontent/zx/shxw/index.html'),
-              (u'政策_最新政策','http://www.banyuetan.org/chcontent/zc/zxzc/index.html'),
-              (u'政策_政策解读','http://www.banyuetan.org/chcontent/zc/zcjd/index.html'),
-              (u'政策_政策咨询','http://www.banyuetan.org/chcontent/zc/zczx/index.html'),
-              (u'政策_曝光台','http://www.banyuetan.org/chcontent/zc/bgt/index.html'),
-              (u'政策_民声','http://www.banyuetan.org/chcontent/zc/ms/index.html'),
-              (u'观点_评论','http://www.banyuetan.org/chcontent/gd/pl/index.html'),
-              (u'观点_专栏作家','http://www.banyuetan.org/chcontent/gd/zlzj/index.html'),
-              (u'观点_人物','http://www.banyuetan.org/chcontent/gd/sdrw/index.html')
+    feeds = [ (u'半月谈_时政_为政者说_访谈','http://www.banyuetan.org/chcontent/sz/wzzs/szft/index.html'),
+              (u'半月谈_时政_为政者说_笔谈','http://www.banyuetan.org/chcontent/sz/wzzs/szbt/index.html'),
+              (u'半月谈_时政_为政者说_诤言','http://www.banyuetan.org/chcontent/sz/wzzs/szgd/index.html'),
+              (u'半月谈_时政_时政聚焦','http://www.banyuetan.org/chcontent/sz/szgc/index.html'),
+              (u'半月谈_时政_环球看点','http://www.banyuetan.org/chcontent/sz/hqkd/index.html'),
+              (u'半月谈_时政_经济观察','http://www.banyuetan.org/chcontent/sz/jjzs/index.html'),
+              (u'半月谈_资讯_要闻300秒','http://www.banyuetan.org/chcontent/zx/yw/index.html'),
+              (u'半月谈_资讯_媒体集萃','http://www.banyuetan.org/chcontent/zx/mtzd/index.html'),
+              (u'半月谈_资讯_民生话题','http://www.banyuetan.org/chcontent/zx/shxw/index.html'),
+              (u'半月谈_政策_最新政策','http://www.banyuetan.org/chcontent/zc/zxzc/index.html'),
+              (u'半月谈_政策_政策解读','http://www.banyuetan.org/chcontent/zc/zcjd/index.html'),
+              (u'半月谈_政策_政策咨询','http://www.banyuetan.org/chcontent/zc/zczx/index.html'),
+              (u'半月谈_政策_曝光台','http://www.banyuetan.org/chcontent/zc/bgt/index.html'),
+              (u'半月谈_政策_民声','http://www.banyuetan.org/chcontent/zc/ms/index.html'),
+              (u'半月谈_观点_评论','http://www.banyuetan.org/chcontent/gd/pl/index.html'),
+              (u'半月谈_观点_专栏作家','http://www.banyuetan.org/chcontent/gd/zlzj/index.html'),
+              (u'半月谈_观点_人物','http://www.banyuetan.org/chcontent/gd/sdrw/index.html')
             ]
     def ParseFeedUrls(self):
         """ return list like [(section,title,url,desc),..] """

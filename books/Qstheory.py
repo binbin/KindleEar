@@ -23,12 +23,12 @@ class Qstheory(BaseFeedBook):
     oldest_article        = 1
     force_ftitle          = True
     
-    feeds = [   (u'求是理论网',u'头条推荐','http://www.qstheory.cn/was5/web/search?channelid=258768&prepage=40&searchword=extend5%3D%27%251184411%25%27&list=1184411'),
-                (u'求是理论网',u'要闻','http://www.qstheory.cn/was5/web/search?channelid=258768&prepage=40&searchword=extend5%3D%27%251181546%25%27&list=1181546'),
-                (u'求是理论网',u'重要文章','http://www.qstheory.cn/was5/web/search?channelid=258768&prepage=40&searchword=extend5%3D%27%251184334%25%27&list=1184334'),
-                (u'求是理论网',u'《求是》重点文章','http://www.qstheory.cn/was5/web/search?channelid=258768&prepage=40&searchword=extend5%3D%27%251181551%25%27&list=1181551'),
-                (u'求是理论网',u'《红旗文稿》推荐','http://www.qstheory.cn/was5/web/search?channelid=258768&prepage=40&searchword=extend5%3D%27%251181552%25%27&list=1181552'),
-                (u'求是理论网',u'原创精选','http://www.qstheory.cn/was5/web/search?channelid=258768&prepage=40&searchword=extend5%3D%27%251184643%25%27&list=1184643'),
+    feeds = [   (u'求是理论网_推荐内容',u'头条推荐','http://www.qstheory.cn/was5/web/search?channelid=258768&prepage=40&searchword=extend5%3D%27%251184411%25%27&list=1184411'),
+                (u'求是理论网_推荐内容',u'要闻','http://www.qstheory.cn/was5/web/search?channelid=258768&prepage=40&searchword=extend5%3D%27%251181546%25%27&list=1181546'),
+                (u'求是理论网_推荐内容',u'重要文章','http://www.qstheory.cn/was5/web/search?channelid=258768&prepage=40&searchword=extend5%3D%27%251184334%25%27&list=1184334'),
+                (u'求是理论网_推荐内容',u'《求是》重点文章','http://www.qstheory.cn/was5/web/search?channelid=258768&prepage=40&searchword=extend5%3D%27%251181551%25%27&list=1181551'),
+                (u'求是理论网_推荐内容',u'《红旗文稿》推荐','http://www.qstheory.cn/was5/web/search?channelid=258768&prepage=40&searchword=extend5%3D%27%251181552%25%27&list=1181552'),
+                (u'求是理论网_推荐内容',u'原创精选','http://www.qstheory.cn/was5/web/search?channelid=258768&prepage=40&searchword=extend5%3D%27%251184643%25%27&list=1184643'),
                 (u'求是理论网_经济',u'改革发展','http://www.qstheory.cn/was5/web/search?channelid=258768&prepage=40&searchword=extend5%3D%27%251181614%25%27&list=1181614'),
                 (u'求是理论网_经济',u'经济观察','http://www.qstheory.cn/was5/web/search?channelid=258768&prepage=40&searchword=extend5%3D%27%251181615%25%27&list=1181615'),
                 (u'求是理论网_经济',u'三农在线','http://www.qstheory.cn/was5/web/search?channelid=258768&prepage=40&searchword=extend5%3D%27%251181616%25%27&list=1181616'),

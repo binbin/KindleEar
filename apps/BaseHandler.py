@@ -182,7 +182,7 @@ class BaseHandler:
                 self.deliverlog(name, to, title, size, tz=tz)
                 break
     
-    def render(self, templatefile, title='KindleEar', **kwargs):
+    def render(self, templatefile, title='PartyNews', **kwargs):
         kwargs.setdefault('nickname', main.session.get('username'))
         kwargs.setdefault('lang', main.session.get('lang', 'en'))
         kwargs.setdefault('version', main.__Version__)
