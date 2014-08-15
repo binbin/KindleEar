@@ -37,7 +37,7 @@ class NFZM(BaseFeedBook):
             feed_content = opener.open(url).content.decode(self.feed_encoding)
             feed_soup = BeautifulSoup(feed_content, "lxml")
             urls.append(
-                (sec_titles[0], top_news.a['title'], url, feed_soup.find(id="articleContent")))
+                ('%s-%s'%(u'南方周末',sec_titles[0]), top_news.a['title'], url, feed_soup.find(id="articleContent")))
         sec_count = 0
         for sec_content in soup.find_all('ul', {'class': 'relnews'}):
             for a in sec_content.find_all('a'):
@@ -46,6 +46,6 @@ class NFZM(BaseFeedBook):
                     url).content.decode(self.feed_encoding)
                 feed_soup = BeautifulSoup(feed_content, "lxml")
                 urls.append(
-                    (sec_titles[sec_count], a['title'], url, feed_soup.find(id="articleContent")))
+                    ('%s-%s'%(u'南方周末',sec_titles[sec_count]), a['title'], url, feed_soup.find(id="articleContent")))
             sec_count += 1
         return urls
