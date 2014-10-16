@@ -99,8 +99,14 @@ class BaseHandler:
             try:
                 if ";" in to:
                     to = to.split(";")
-                mail.send_mail(SRC_EMAIL, to, "News Feeds %s" % lctime, "Deliver from News Feeds",
-                    attachments=[(filename, attachment),])
+                mail.send_mail(SRC_EMAIL, SRC_EMAIL, "News Feeds %s" % lctime, "Deliver from News Feeds",
+                    attachments=[(filename, attachment),],bcc = to)    
+                # mail.send_mail(SRC_EMAIL, to, "News Feeds %s" % lctime, "Deliver from News Feeds",
+                #     attachments=[(filename, attachment),])
+                # mail.send_mail(SRC_EMAIL, to, "News Feeds %s" % lctime, "Deliver from News Feeds",
+                #     attachments=[(filename, attachment),])
+                # mail.send_mail(sender = SRC_EMAIL, bcc = to,subject = "News Feeds %s" % lctime, body = "Deliver from News Feeds",
+                #     attachments=[(filename, attachment),])
             except OverQuotaError as e:
                 default_log.warn('overquota when sendmail to %s:%s' % (to, str(e)))
                 self.deliverlog(name, to, title, len(attachment), tz=tz, status='over quota')
