@@ -39,7 +39,11 @@
     {% for book in books -%}
     {% if nickname in book.users -%}
     <div class="book">
-        <div class="titleRow">{{book.title}}</div>
+        <div class="titleRow">{{book.title}}
+        {% if book.separate -%}
+          <img alt="{{_("Separate")}}" src="static/separate.gif" border="0" />
+        {% endif -%}
+        </div>
         <div class="cornerControls">
           {% if book.needs_subscription -%}
             <a href="/booklogininfo/{{book.key().id()}}" class="actionButton"
@@ -60,9 +64,13 @@
     {% for book in books -%}
     {% if nickname not in book.users -%}
     <div class="book">
-        <div class="titleRow">{{book.title}}</div>
+        <div class="titleRow">{{book.title}}
+            <input type="checkbox" id="separate_{{book.key().id()}}" style="margin-left:1em;" />
+            <img alt="{{_("Separate")}}" src="static/separate.gif" border="0" onclick="toggleSeparate('{{book.key().id()}}');" />
+        </div>
         <div class="cornerControls">
-            <a href="/subscribe/{{book.key().id()}}" class="actionButton">{{_("Subscribe")}}</a>
+            <!--<a href="/subscribe/{{book.key().id()}}" class="actionButton">{{_("Subscribe")}}</a>-->
+            <a href="javascript:void(0)" onclick="doSubscribe('{{book.key().id()}}')" class="actionButton">{{_("Subscribe")}}</a>
         </div>
         <div class="summaryRow">
             {%if book.description|length>80%}{{book.description[:80]}}...<span>{{book.description}}</span>{%else%}{{book.description}}{%endif%}
@@ -77,6 +85,19 @@
 function toggleFulltext() {
   var btnft = document.getElementById("fulltext");
   btnft.checked = !btnft.checked;
+}
+function toggleSeparate(id) {
+  id = "separate_" + id
+  var btnft = document.getElementById(id);
+  btnft.checked = !btnft.checked;
+}
+
+function doSubscribe(id) {
+  var btnSeparate = document.getElementById("separate_" + id);
+  target = "/subscribe/" + id
+  if (btnSeparate.checked)
+    target += "?separate=true"
+  window.location.href = target
 }
 </script>
 {% endblock -%}

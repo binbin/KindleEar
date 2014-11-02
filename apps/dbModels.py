@@ -18,7 +18,8 @@ class Book(db.Model):
     description = db.StringProperty()
     users = db.StringListProperty()
     builtin = db.BooleanProperty()
-    needs_subscription = db.BooleanProperty()
+    needs_subscription = db.BooleanProperty() #是否需要登陆网页
+    separate = db.BooleanProperty() #是否单独推送
     
     #====自定义书籍
     language = db.StringProperty()

@@ -55,6 +55,7 @@ class Subscribe(BaseHandler):
         
         if main.session.username not in bk.users:
             bk.users.append(main.session.username)
+            bk.separate = bool(web.input().get('separate') in ('true','1'))
             bk.put()
         raise web.seeother('/my')
         
@@ -73,6 +74,7 @@ class Unsubscribe(BaseHandler):
         
         if main.session.username in bk.users:
             bk.users.remove(main.session.username)
+            bk.separate = False
             bk.put()
             
         #为安全起见，退订后也删除网站登陆信息（如果有的话）
