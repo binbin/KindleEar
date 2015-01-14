@@ -58,9 +58,9 @@ class QstheorySubject(BaseFeedBook):
 
             for h3 in list_article:
                 a=h3.find('a')
-                href = a['href']
                 if not a:
                   continue
+                href = a['href']
                 try:
                     m=file_name_search(href)
                     if m:

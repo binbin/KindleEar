@@ -1,4 +1,4 @@
-application: binbin-feeds
+application: media-of-party
 module: worker
 version: 1
 runtime: python27
